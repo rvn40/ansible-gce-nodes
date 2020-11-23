@@ -1,0 +1,53 @@
+---
+
+general:
+  prefix_first: ""
+  prefix_second: ""
+  region_default: ""
+  wild_world_range: ""
+project:
+  - projectID: "" 
+    authkind: ""   
+  - projectID: "" 
+    authkind: ""
+serviceaccounts: 
+  - name: ""
+    email: ""
+    json_directory: "files/serviceaccounts/"
+    json_name: ""
+users:
+  ssh:
+    - username: ""
+      key_directory: "files/ssh_keys/"
+      key_filename: ""
+# Modify if you are using another remote repository providers or leave empty if you don't use any
+bitbucket:
+  client_id: ""
+  client_secret: ""
+vpc:
+  name: ""
+subnets:
+  - name: ""
+    group: ""
+    subnet_range: ""
+firewall:
+  - name: ""
+    protocol: tcp
+    port:   ["","",""]
+    source_ranges: ""
+    target_tags: ""
+  - name: ""
+    protocol: tcp
+    port:   [""]
+    source_ranges: ""
+    target_tags: ""
+vms:
+  - cluster_name: ""
+    properties:
+      - role: ""
+        index: ""
+        zone: ""
+        type: ""
+        state: ""
+        disk1_size: ""
+        images: ""
