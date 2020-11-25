@@ -52,5 +52,4 @@
     - properties
   loop_control:
     loop_var: vms_item
-  when: subnetwork.resources[0] is defined
   register: cluster_members
