@@ -1,0 +1,20 @@
+---
+
+- name: Print all available facts
+  ansible.builtin.debug:
+    msg: "{{cluster_members}}"
+
+- name: Renew hosts file
+  template:
+    src: files/templates/hosts.j2
+    dest: hosts
+    mode: '0644'
+
+- name: Insert/Update hosts file
+  blockinfile:
+    path: hosts
+    insertafter: "localhost ansible_connection=local"
+    block: |
+      [{{item.vms_item[0].cluster_name}}]
+      {{item.name}} ansible_connection=ssh ansible_host={{item.networkInterfaces[0].networkIP}} ansible_ssh_extra_args='-o StrictHostKeyChecking=no' ansible_ssh_private_key_file="{{users.ssh[0].key_directory}}{{users.ssh[0].key_filename}}" ansible_user="{{users.ssh[0].username}}" ansible_python_interpreter=/usr/bin/python3
+  with_items: "{{cluster_members.results}}"

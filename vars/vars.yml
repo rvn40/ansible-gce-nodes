@@ -1,53 +1,49 @@
 ---
 
 general:
-  prefix_first: ""
-  prefix_second: ""
-  region_default: ""
-  wild_world_range: ""
+  prefix_first: "rcloud"
+  prefix_second: "labs"
+  region_default: "us-west1"
+  wild_world_range: "0.0.0.0/0"
 project:
-  - projectID: "" 
-    authkind: ""   
-  - projectID: "" 
-    authkind: ""
+  - projectID: "devops-project-253405" 
+    authkind: "serviceaccount"
+#   Leave another blank if you involving one project only
+#  - projectID: "" 
+#    authkind: ""
 serviceaccounts: 
-  - name: ""
-    email: ""
+  - name: "devops-ansible"
+    email: "devops-ansible@devops-project-253405.iam.gserviceaccount.com"
     json_directory: "files/serviceaccounts/"
-    json_name: ""
+    json_name: "devops-project-253405-4cf109d08c9e.json"
 users:
   ssh:
-    - username: ""
+    - username: "rivan_amarbank"
       key_directory: "files/ssh_keys/"
-      key_filename: ""
+      key_filename: "rivan_amar.pem"
 # Modify if you are using another remote repository providers or leave empty if you don't use any
-bitbucket:
-  client_id: ""
-  client_secret: ""
+#bitbucket:
+#  client_id: ""
+#  client_secret: ""
 vpc:
-  name: ""
+  name: "quick-learn-vpc-01"
 subnets:
-  - name: ""
-    group: ""
-    subnet_range: ""
+  - name: "quick-learn-vpc-01-subnet-01"
+    group: "sea2"
+    subnet_range: "172.25.0.0/22"
 firewall:
-  - name: ""
+  - name: "quicklearnvpc-allow-webports-public"
     protocol: tcp
-    port:   ["","",""]
-    source_ranges: ""
-    target_tags: ""
-  - name: ""
-    protocol: tcp
-    port:   [""]
-    source_ranges: ""
-    target_tags: ""
+    port:   ["80","443"]
+    source_ranges: "0.0.0.0/0"
+    target_tags: "quicklearnvpc-allow-webports-public"
 vms:
-  - cluster_name: ""
+  - cluster_name: "quicklearn-rancher-k8s"
     properties:
-      - role: ""
-        index: ""
-        zone: ""
-        type: ""
-        state: ""
-        disk1_size: ""
-        images: ""
+      - role: "master"
+        index: "01"
+        zone: "a"
+        type: "e2-medium"
+        state: "present"
+        disk1_size: "20"
+        images: "https://www.googleapis.com/compute/v1/projects/devops-project-253405/global/images/rancheros-image"
