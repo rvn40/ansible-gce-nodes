@@ -3,7 +3,7 @@ Deploy three gcp compute engines using ansible 2.10. To use this scripts you nee
 
 However, you can also use these scripts to launch three nodes without any purpose for build kubernetes cluster with rancher2 by deleting and modifying some vm properties in vars file. See the picture below.
 
-![vars](./files/images/rancheros/vars.PNG)
+![vars](../files/images/rancheros/vars.PNG)
 
 
 No matter on which purpose you have to running these scripts you have to make sure that vpc, subnetworks, and firewall rules has been existed and configured in advance before we start to deploy all resources by using these scripts as well as configure the ansible hosts properly and install some packages you need like below.
