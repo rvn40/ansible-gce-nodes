@@ -25,7 +25,7 @@
 - debug:
     var: subnetwork
 
-- name: Deploy machines 
+- name: Deploy machines with EIP
   gcp_compute_instance:
     name: "{{ general.prefix_first }}-{{ general.prefix_second }}-{{ subnets[0].group }}-{{ vms_item[0].cluster_name }}-{{ vms_item[1].role }}-{{ vms_item[1].index }}"
     machine_type: "{{vms_item[1].type}}"
@@ -40,6 +40,10 @@
     network_interfaces:
     - network: "{{ network.resources[0] }}"
       subnetwork: "{{ subnetwork.resources[0] }}"
+      access_configs: # Just delete access_configs and all its properties if you want to deploy without public IP
+      - name: External NAT
+        type: ONE_TO_ONE_NAT
+        network_tier: "STANDARD"
     zone: "asia-southeast1-{{ vms_item[1].zone }}"
     tags:
       items: ["{{ firewall[0].target_tags }}"]
@@ -53,3 +57,4 @@
   loop_control:
     loop_var: vms_item
   register: cluster_members
+
