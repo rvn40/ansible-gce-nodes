@@ -1,7 +1,9 @@
 # ansible-gce-simple-cluster
-Deploy three gcp compute engines using ansible 2.10. To use this scripts you need to make sure you have rancheros on your gce image collections because these scripts originally used as preliminary scripts for deploying simple kubernetes cluster with rancher2 as container management tools. If you haven't, you can follow the intructions [here](https://github.com/rvn40/instructions/blob/main/rancheros/upload-image-to-gcp.md) to import rancheros image. However, you can also use these scripts to launch three nodes without any purpose for build kubernetes cluster with rancher2 by deleting and modifying some vm properties in vars file. See the picture below.
+Deploy three gcp compute engines using ansible 2.10. To use this scripts you need to make sure you have rancheros on your gce image collections because these scripts originally used as preliminary scripts for deploying simple kubernetes cluster with rancher2 as container management tools. If you haven't, you can follow the intructions [here](https://github.com/rvn40/instructions/blob/main/rancheros/upload-image-to-gcp.md) to import rancheros image. 
 
-![vars](files/images/rancheros/rancheros-in-bucket.PNG)
+However, you can also use these scripts to launch three nodes without any purpose for build kubernetes cluster with rancher2 by deleting and modifying some vm properties in vars file. See the picture below.
+
+![vars](../files/images/rancheros/rancheros-in-bucket.PNG)
 
 
 No matter on which purpose you have to running these scripts you have to make sure that vpc, subnetworks, and firewall rules has been existed and configured in advance before we start to deploy all resources by using these scripts as well as configure the ansible hosts properly and install some packages you need like below.
