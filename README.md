@@ -6,7 +6,7 @@ However, you can also use these scripts to launch three nodes without any purpos
 ![vars](files/images/forReadme/vars.PNG)
 
 
-No matter on which purpose you have to running these scripts you have to make sure that vpc, subnetworks, and firewall rules has been existed and configured in advance before we start to deploy all resources by using these scripts as well as configure the ansible hosts properly and install some packages you need like below.
+No matter on which purpose you have, when you willing to running these scripts you have to make sure that vpc, subnetworks, and firewall rules has been existed and configured in advance before we start to deploy all resources by using these scripts as well as configure the ansible hosts properly and install some packages you need like below.
 
 # Requirements
 When you use this ansible scripts, make sure you have installed all of these packages in advance on your ansible host:
