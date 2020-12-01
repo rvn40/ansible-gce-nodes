@@ -24,19 +24,24 @@ users:
 #  client_id: ""      # Modify if you are using another remote repository providers or leave empty if you don't use any
 #  client_secret: ""  # Modify if you are using another remote repository providers or leave empty if you don't use any
 vpc:
-  name: "quick-learn-vpc-01"
+  name: "rcloud-labs-vpc-01"
 subnets:
-  - name: "quick-learn-vpc-01-subnet-01"
-    group: "sea2"
+  - name: "rcloud-labs-vpc-01-west1-subnet-01"
+    group: "west1"
     subnet_range: "172.25.0.0/22"
 firewall:
-  - name: "quicklearnvpc-allow-webports-public"
+  - name: "rcloudlabs-vpc-01-allow-ssh-public"
     protocol: tcp
-    port:   ["80","443"]
-    source_ranges: "0.0.0.0/0"
-    target_tags: "quicklearnvpc-allow-webports-public"
+    port: ["80","443"]
+    source_ranges: ["0.0.0.0/0"]
+    target_tags: "rcloudlabs-vpc-01-allow-webports-public"
+  - name: "allow-ssh-public"
+    protocol: tcp
+    port: ["22"]
+    source_ranges: ["0.0.0.0/0"]
+    target_tags: "allow-ssh-public"
 vms:
-  - cluster_name: "quicklearn-rancher-k8s"
+  - cluster_name: "rancher-k8s"
     properties:
       - role: "master"
         index: "01"
