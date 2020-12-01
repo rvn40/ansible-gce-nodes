@@ -6,21 +6,21 @@ general:
   region_default: "us-west1"
   wild_world_range: "0.0.0.0/0"
 project:
-  - projectID: "devops-project-253405" 
+  - projectID: "" 
     authkind: "serviceaccount"
 #   Leave another blank if you involving one project only
 #  - projectID: "" 
 #    authkind: ""
 serviceaccounts: 
   - name: "devops-ansible"
-    email: "devops-ansible@devops-project-253405.iam.gserviceaccount.com"
+    email: "devops-ansible@projectID.iam.gserviceaccount.com"
     json_directory: "files/serviceaccounts/"
-    json_name: "devops-project-253405-4cf109d08c9e.json"
+    json_name: "devops-project.json"
 users:
   ssh:
-    - username: "rivan_amarbank"
+    - username: ""
       key_directory: "files/ssh_keys/"
-      key_filename: "rivan_amar.pem"
+      key_filename: "rivan.pem"
 # Modify if you are using another remote repository providers or leave empty if you don't use any
 #bitbucket:
 #  client_id: ""
@@ -46,7 +46,7 @@ vms:
         type: "e2-medium"
         state: "present"
         disk1_size: "20"
-        images: "https://www.googleapis.com/compute/v1/projects/devops-project-253405/global/images/rancheros-image"
+        images: "https://www.googleapis.com/compute/v1/projects/projectID/global/images/rancheros-image"
       - role: "etcd-controlplane"
         index: "01"
         zone: "b"
