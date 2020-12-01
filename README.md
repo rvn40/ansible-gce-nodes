@@ -25,3 +25,9 @@ It's also necessary to install all of these packages requirements using pip:
 - boto3
 
 Prepare all of neccesary files like serviceaccount, ssh keys, bash, ssl, etc. Recommended to place those files under directory called "files".
+
+# How to use
+
+```
+ansible-playbook deploy-vm.yml
+```
