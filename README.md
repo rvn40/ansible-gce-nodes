@@ -10,9 +10,8 @@ No matter on which purpose you have, when you willing to running these scripts y
 
 ### Note
 
-```
-Just in case you need the example of ansible script for build the vpc, subnetworks, and firewall rules can be found [here](https://github.com/rvn40/ansible-gce-network-simple). 
-```
+> Just in case you need the example of ansible script for build the vpc, subnetworks, and firewall rules can be found [here](https://github.com/rvn40/ansible-gce-network-simple). 
+
 
 # Requirements
 When you use this ansible scripts, make sure you have installed all of these packages in advance on your ansible host:
