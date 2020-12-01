@@ -6,25 +6,23 @@ general:
   region_default: "us-west1"
   wild_world_range: "0.0.0.0/0"
 project:
-  - projectID: "" 
+  - projectID: "<<projectID>>" 
     authkind: "serviceaccount"
-#   Leave another blank if you involving one project only
-#  - projectID: "" 
-#    authkind: ""
+#  - projectID: ""  # Leave another blank if you involving one project only
+#    authkind: ""   # Leave another blank if you involving one project only
 serviceaccounts: 
   - name: "devops-ansible"
-    email: "devops-ansible@projectID.iam.gserviceaccount.com"
+    email: "devops-ansible@<<projectID>>.iam.gserviceaccount.com"
     json_directory: "files/serviceaccounts/"
     json_name: "devops-project.json"
 users:
   ssh:
-    - username: ""
+    - username: "user1"
       key_directory: "files/ssh_keys/"
-      key_filename: "rivan.pem"
-# Modify if you are using another remote repository providers or leave empty if you don't use any
-#bitbucket:
-#  client_id: ""
-#  client_secret: ""
+      key_filename: "my_key.pem"
+#bitbucket:           # Modify if you are using another remote repository providers or leave empty if you don't use any
+#  client_id: ""      # Modify if you are using another remote repository providers or leave empty if you don't use any
+#  client_secret: ""  # Modify if you are using another remote repository providers or leave empty if you don't use any
 vpc:
   name: "quick-learn-vpc-01"
 subnets:
