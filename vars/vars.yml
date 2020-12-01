@@ -26,19 +26,24 @@ users:
 #  client_id: ""
 #  client_secret: ""
 vpc:
-  name: "quick-learn-vpc-01"
+  name: "rcloud-labs-vpc-01"
 subnets:
-  - name: "quick-learn-vpc-01-subnet-01"
-    group: "sea2"
+  - name: "rcloud-labs-vpc-01-west1-subnet-01"
+    group: "west1"
     subnet_range: "172.25.0.0/22"
 firewall:
-  - name: "quicklearnvpc-allow-webports-public"
+  - name: "rcloudlabs-vpc-01-allow-ssh-public"
     protocol: tcp
-    port:   ["80","443"]
-    source_ranges: "0.0.0.0/0"
-    target_tags: "quicklearnvpc-allow-webports-public"
+    port: ["80","443"]
+    source_ranges: ["0.0.0.0/0"]
+    target_tags: "rcloudlabs-vpc-01-allow-webports-public"
+  - name: "allow-ssh-public"
+    protocol: tcp
+    port: ["22"]
+    source_ranges: ["0.0.0.0/0"]
+    target_tags: "allow-ssh-public"
 vms:
-  - cluster_name: "quicklearn-rancher-k8s"
+  - cluster_name: "rancher-k8s"
     properties:
       - role: "master"
         index: "01"
@@ -46,7 +51,8 @@ vms:
         type: "e2-medium"
         state: "present"
         disk1_size: "20"
-        images: "https://www.googleapis.com/compute/v1/projects/devops-project-253405/global/images/rancheros-image"
+        images: "https://www.googleapis.com/compute/v1/projects/centos-cloud/global/images/centos-7-v20201112"
+        # images: "https://www.googleapis.com/compute/v1/projects/devops-project-253405/global/images/rancheros-image" # rancheros
       - role: "etcd-controlplane"
         index: "01"
         zone: "b"
