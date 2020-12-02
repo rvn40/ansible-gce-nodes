@@ -11,7 +11,7 @@
 
 - name: Get info on a subnetwork
   gcp_compute_subnetwork_info:
-    region: "{{ 'asia-southeast1' | default(general.region_default) }}"
+    region: "{{general.region_default | default('asia-southeast1')}}"
     filters:
     - name = "{{ subnets[0].name }}"
     project: "{{ project[0].projectID }}"
@@ -44,7 +44,7 @@
       - name: External NAT
         type: ONE_TO_ONE_NAT
         network_tier: "STANDARD"
-    zone: "asia-southeast1-{{ vms_item[1].zone }}"
+    zone: "{{general.region_default}}-{{ vms_item[1].zone }}"
     tags:
       items: ["{{ firewall[0].target_tags }}"]
     project: "{{ project[0].projectID }}"
