@@ -29,5 +29,5 @@ Prepare all of neccesary files like serviceaccount, ssh keys, bash, ssl, etc. Re
 # How to use
 
 ```
-ansible-playbook deploy-vm.yml
+ansible-playbook deploy_vm.yml
 ```
