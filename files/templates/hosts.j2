@@ -4,20 +4,20 @@ localhost ansible_connection=local ansible_python_interpreter=/usr/bin/python3
 [rancher-k8s-master]
 {% for item in cluster_members.results : %}
 {% if item.vms_item[1].role == "master" %}
-"{{item.name}} ansible_connection=ssh ansible_host={{item.networkInterfaces[0].networkIP}} ansible_ssh_extra_args='-o StrictHostKeyChecking=no' ansible_ssh_private_key_file={{users.ssh[0].key_directory}}{{users.ssh[0].key_filename}} ansible_user={{users.ssh[0].username}} ansible_python_interpreter=/usr/bin/python3 \n" 
+{{item.name}} ansible_connection=ssh ansible_host={{item.networkInterfaces[0].networkIP}} ansible_ssh_extra_args='-o StrictHostKeyChecking=no' ansible_ssh_private_key_file={{users.ssh[0].key_directory}}{{users.ssh[0].key_filename}} ansible_user={{users.ssh[0].username}} ansible_python_interpreter=/usr/bin/python3 \n
 {% endif %}
 {% endfor %}
 
 [rancher-k8s-etcd-controlplane]
 {% for item in cluster_members.results : %}
 {% if item.vms_item[1].role == "etcd-controlplane" %}
-"{{item.name}} ansible_connection=ssh ansible_host={{item.networkInterfaces[0].networkIP}} ansible_ssh_extra_args='-o StrictHostKeyChecking=no' ansible_ssh_private_key_file={{users.ssh[0].key_directory}}{{users.ssh[0].key_filename}} ansible_user={{users.ssh[0].username}} ansible_python_interpreter=/usr/bin/python3 \n" 
+{{item.name}} ansible_connection=ssh ansible_host={{item.networkInterfaces[0].networkIP}} ansible_ssh_extra_args='-o StrictHostKeyChecking=no' ansible_ssh_private_key_file={{users.ssh[0].key_directory}}{{users.ssh[0].key_filename}} ansible_user={{users.ssh[0].username}} ansible_python_interpreter=/usr/bin/python3 \n
 {% endif %}
 {% endfor %}
 
 [rancher-k8s-worker]
 {% for item in cluster_members.results : %}
 {% if item.vms_item[1].role == "worker" %}
-"{{item.name}} ansible_connection=ssh ansible_host={{item.networkInterfaces[0].networkIP}} ansible_ssh_extra_args='-o StrictHostKeyChecking=no' ansible_ssh_private_key_file={{users.ssh[0].key_directory}}{{users.ssh[0].key_filename}} ansible_user={{users.ssh[0].username}} ansible_python_interpreter=/usr/bin/python3 \n" 
+{{item.name}} ansible_connection=ssh ansible_host={{item.networkInterfaces[0].networkIP}} ansible_ssh_extra_args='-o StrictHostKeyChecking=no' ansible_ssh_private_key_file={{users.ssh[0].key_directory}}{{users.ssh[0].key_filename}} ansible_user={{users.ssh[0].username}} ansible_python_interpreter=/usr/bin/python3 \n
 {% endif %}
 {% endfor %}
