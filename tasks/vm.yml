@@ -46,7 +46,9 @@
         network_tier: "STANDARD"
     zone: "{{general.region_default}}-{{ vms_item[1].zone }}"
     tags:
-      items: ["{{ firewall[0].target_tags }}"]
+      items: "{{ vms_item[1].firewall_tags }}"
+    metadata:
+      "ssh-keys": "{{users.ssh[0].username}}:{{users.ssh[0].pubkey}} {{users.ssh[0].username}}"
     project: "{{ project[0].projectID }}"
     auth_kind: "{{ project[0].authkind }}"
     service_account_file: "{{ serviceaccounts[0].json_directory }}{{ serviceaccounts[0].json_name }}"
@@ -57,4 +59,3 @@
   loop_control:
     loop_var: vms_item
   register: cluster_members
-

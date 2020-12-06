@@ -19,29 +19,15 @@ serviceaccounts:
 users:
   ssh:
     - username: "rivan_amarbank"
+      pubkey: "ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAhiHWyHv+ZJ34vb3yV/ifp7ma8d4lvBViyeVDS4074d48lb+ya3O9oletZXexEyv3pXDtW1gXQIHRZr/Qh0h8TwSTKo+29Obp9QDbP3Nmwp12llDbMiYuXGn7McpuhWUYvW8zTSfPVBNBKtUKf+JiAf3Z4vCYkcAJKx5Xg3Zf2lmwF41E1EJIRAY0qSb87rbDSmyRhdQHhS4aUsLvxGhSYTuf+gh8ohgAPmdAqBU728Waf85l2xUGq4BJMt7EsZWMvOmowtVGJdj4cXH26CtoDgFF5DzL4CPFdztQpNKs5f31SXfhpUNlY7EpZ0jkoNeF5xQf/5EwNt22gbxlHUNwCw=="
       key_directory: "files/ssh_keys/"
       key_filename: "rivan_amar.pem"
-# Modify if you are using another remote repository providers or leave empty if you don't use any
-#bitbucket:
-#  client_id: ""
-#  client_secret: ""
 vpc:
   name: "rcloud-labs-vpc-01"
 subnets:
   - name: "rcloud-labs-vpc-01-west1-subnet-01"
     group: "west1"
     subnet_range: "172.25.0.0/22"
-firewall:
-  - name: "rcloudlabs-vpc-01-allow-ssh-public"
-    protocol: tcp
-    port: ["80","443"]
-    source_ranges: ["0.0.0.0/0"]
-    target_tags: "rcloudlabs-vpc-01-allow-webports-public"
-  - name: "allow-ssh-public"
-    protocol: tcp
-    port: ["22"]
-    source_ranges: ["0.0.0.0/0"]
-    target_tags: "allow-ssh-public"
 vms:
   - cluster_name: "rancher-k8s"
     properties:
@@ -51,6 +37,7 @@ vms:
         type: "e2-medium"
         state: "present"
         disk1_size: "20"
+        firewall_tags: ["allow-ssh-public","allow-webports-public"]
         images: "https://www.googleapis.com/compute/v1/projects/centos-cloud/global/images/centos-7-v20201112"
         # images: "https://www.googleapis.com/compute/v1/projects/devops-project-253405/global/images/rancheros-image" # rancheros
       - role: "etcd-controlplane"
@@ -59,6 +46,7 @@ vms:
         type: "e2-medium"
         state: "present"
         disk1_size: "20"
+        firewall_tags: ["allow-ssh-public","allow-webports-public"]
         images: "https://www.googleapis.com/compute/v1/projects/centos-cloud/global/images/centos-7-v20201112"
       - role: "worker"
         index: "01"
@@ -66,6 +54,7 @@ vms:
         type: "e2-medium"
         state: "present"
         disk1_size: "20"
+        firewall_tags: ["allow-ssh-public","allow-webports-public"]
         images: "https://www.googleapis.com/compute/v1/projects/centos-cloud/global/images/centos-7-v20201112"
       - role: "worker"
         index: "02"
@@ -73,4 +62,5 @@ vms:
         type: "e2-small"
         state: "present"
         disk1_size: "20"
+        firewall_tags: ["allow-ssh-public","allow-webports-public"]
         images: "https://www.googleapis.com/compute/v1/projects/centos-cloud/global/images/centos-7-v20201112"

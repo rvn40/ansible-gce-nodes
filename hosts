@@ -2,11 +2,11 @@
 localhost ansible_connection=local ansible_python_interpreter=/usr/bin/python3
 
 [rancher-k8s-master]
-"rcloud-labs-west1-rancher-k8s-master-01 ansible_connection=ssh ansible_host=172.25.0.10 ansible_ssh_extra_args='-o StrictHostKeyChecking=no' ansible_ssh_private_key_file=files/ssh_keys/rivan_amar.pem ansible_user=rivan_amarbank ansible_python_interpreter=/usr/bin/python3 \n" 
+"rcloud-labs-west1-rancher-k8s-master-01 ansible_connection=ssh ansible_host=172.25.0.18 ansible_ssh_extra_args='-o StrictHostKeyChecking=no' ansible_ssh_private_key_file=files/ssh_keys/rivan_amar.pem ansible_user=rivan_amarbank ansible_python_interpreter=/usr/bin/python3 \n" 
 
 [rancher-k8s-etcd-controlplane]
-"rcloud-labs-west1-rancher-k8s-etcd-controlplane-01 ansible_connection=ssh ansible_host=172.25.0.11 ansible_ssh_extra_args='-o StrictHostKeyChecking=no' ansible_ssh_private_key_file=files/ssh_keys/rivan_amar.pem ansible_user=rivan_amarbank ansible_python_interpreter=/usr/bin/python3 \n" 
+"rcloud-labs-west1-rancher-k8s-etcd-controlplane-01 ansible_connection=ssh ansible_host=172.25.0.19 ansible_ssh_extra_args='-o StrictHostKeyChecking=no' ansible_ssh_private_key_file=files/ssh_keys/rivan_amar.pem ansible_user=rivan_amarbank ansible_python_interpreter=/usr/bin/python3 \n" 
 
 [rancher-k8s-worker]
-"rcloud-labs-west1-rancher-k8s-worker-01 ansible_connection=ssh ansible_host=172.25.0.12 ansible_ssh_extra_args='-o StrictHostKeyChecking=no' ansible_ssh_private_key_file=files/ssh_keys/rivan_amar.pem ansible_user=rivan_amarbank ansible_python_interpreter=/usr/bin/python3 \n" 
-"rcloud-labs-west1-rancher-k8s-worker-02 ansible_connection=ssh ansible_host=172.25.0.13 ansible_ssh_extra_args='-o StrictHostKeyChecking=no' ansible_ssh_private_key_file=files/ssh_keys/rivan_amar.pem ansible_user=rivan_amarbank ansible_python_interpreter=/usr/bin/python3 \n" 
+"rcloud-labs-west1-rancher-k8s-worker-01 ansible_connection=ssh ansible_host=172.25.0.20 ansible_ssh_extra_args='-o StrictHostKeyChecking=no' ansible_ssh_private_key_file=files/ssh_keys/rivan_amar.pem ansible_user=rivan_amarbank ansible_python_interpreter=/usr/bin/python3 \n" 
+"rcloud-labs-west1-rancher-k8s-worker-02 ansible_connection=ssh ansible_host=172.25.0.21 ansible_ssh_extra_args='-o StrictHostKeyChecking=no' ansible_ssh_private_key_file=files/ssh_keys/rivan_amar.pem ansible_user=rivan_amarbank ansible_python_interpreter=/usr/bin/python3 \n" 
