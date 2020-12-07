@@ -10,7 +10,7 @@ No matter on which purpose you have, when you willing to running these scripts y
 
 ### Note
 
-> Just in case you need the example of ansible script for build the vpc, subnetworks, and firewall rules can be found [here](https://github.com/rvn40/ansible-gce-network-simple). 
+> Just in case you need the example of ansible script for build the vpc, subnetworks, and firewall rules can be found [here](https://github.com/rvn40/ansible-gce-network-simple). In order to help you use this ansible scritps easier it's strongly recommended to use pre-built gce image as well which you had configure with python3, pip3, dnf, gcloud-sdk, and all your necesarry packages in advance. Then, you can change 'image' key (like shown on the picture above) in the vars file with your pre-built image. So, you don't have to run 'preconfiguration_rancher.yml' playbook.
 
 
 # Requirements
