@@ -8,6 +8,11 @@ However, you can also use these scripts to launch three nodes without any purpos
 
 No matter on which purpose you have, when you willing to running these scripts you have to make sure that vpc, subnetworks, and firewall rules has been existed and configured in advance before we start to deploy all resources by using these scripts as well as configure the ansible hosts properly and install some packages you need like below.
 
+### Note
+
+> Just in case you need the example of ansible script for build the vpc, subnetworks, and firewall rules can be found [here](https://github.com/rvn40/ansible-gce-network-simple). 
+
+
 # Requirements
 When you use this ansible scripts, make sure you have installed all of these packages in advance on your ansible host:
 
@@ -27,7 +32,3 @@ It's also necessary to install all of these packages requirements using pip:
 Prepare all of neccesary files like serviceaccount, ssh keys, bash, ssl, etc. Recommended to place those files under directory called "files".
 
 # How to use
-
-```
-ansible-playbook deploy_vm.yml
-```
